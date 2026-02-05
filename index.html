@@ -3,58 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeeshCoin | Official</title>
+    <title>Neesh Coin ($NDP1) | The Future of Crypto</title>
     <style>
-        body {
-            background-color: #0d1117;
-            color: white;
+        /* --- CSS STYLES --- */
+        :root {
+            --primary: #8A2BE2; /* BlueViolet */
+            --secondary: #00d4ff; /* Neon Blue */
+            --bg-dark: #0a0a0a;
+            --bg-card: #161616;
+            --text-light: #ffffff;
+            --text-gray: #b3b3b3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* HEADER & NAV */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a:hover { color: var(--secondary); }
+        
+        .btn-main {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+        
+        .btn-main:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.5);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            height: 100vh;
-            margin: 0;
+            align-items: center;
             text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #220a2e 0%, var(--bg-dark) 70%);
         }
-        .container {
-            padding: 20px;
-        }
-        img {
-            border-radius: 50%;
-            box-shadow: 0 0 20px rgba(110, 84, 148, 0.5);
-            margin-bottom: 20px;
-        }
-        h1 {
-            font-size: 3rem;
-            margin: 10px 0;
-            background: linear-gradient(45deg, #88d4ff, #b188ff);
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            background: -webkit-linear-gradient(var(--secondary), var(--primary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        p {
-            color: #8b949e;
-            font-size: 1.2rem;
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--text-gray);
         }
-        .btn {
-            margin-top: 20px;
-            padding: 12px 24px;
-            background-color: #238636;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
+
+        .ticker {
+            font-size: 5rem;
+            font-weight: 900;
+            opacity: 0.1;
+            position: absolute;
+            z-index: -1;
+        }
+
+        /* CONTRACT SECTION */
+        .contract-box {
+            background: var(--bg-card);
+            border: 1px solid var(--primary);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 40px;
+            max-width: 90%;
+            width: 600px;
+            word-break: break-all;
+            position: relative;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.2);
+        }
+
+        .contract-label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--secondary);
             font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
-        .btn:hover { background-color: #2ea043; }
+
+        .address-text {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+        }
+
+        .copy-btn {
+            display: block;
+            width: 100%;
+            margin-top: 15px;
+            padding: 10px;
+            background: transparent;
+            border: 1px solid var(--text-gray);
+            color: var(--text-light);
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            color: #000;
+        }
+
+        /* FEATURES SECTION */
+        .section {
+            padding: 80px 10%;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 15px;
+            border-top: 2px solid var(--secondary);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 { margin-bottom: 15px; color: var(--primary); }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-gray);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Simplified for mobile */
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="logo.png" width="100" height="100" alt="Neesh Logo">
-        <h1>NEESHCOIN</h1>
-        <p>The future of decentralized community tokens.</p>
-        <br>
-        <a href="#" class="btn">View Whitepaper</a>
-    </div>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">Neesh Coin</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#tokenomics">Tokenomics</a>
+            <a href="#contract">Contract</a>
+        </div>
+        <a href="#" class="btn-main">Buy $NDP1</a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="ticker">$NDP1</div>
+        <h1>NEESH COIN</h1>
+        <h2>The next evolution in crypto.</h2>
+        <p style="color: var(--text-gray); max-width: 600px; margin-bottom: 30px;">
+            Community driven, secure, and ready for the moon. Join the Neesh revolution today.
+        </p>
+        
+        <div>
+            <a href="#" class="btn-main">View Chart</a>
+            <a href="https://t.me/" target="_blank" style="margin-left: 20px; border-bottom: 1px solid white;">Join Telegram</a>
+        </div>
+
+        <!-- CONTRACT ADDRESS BOX -->
+        <div id="contract" class="contract-box">
+            <span class="contract-label">Official Contract Address (BSC/ETH)</span>
+            <div class="address-text" id="walletAddress">0x3249f360d4fe485fa61A1E1Fa79DcC6c9758ab17</div>
+            <button class="copy-btn" onclick="copyAddress()">Click to Copy Address</button>
+        </div>
+    </section>
+
+    <!-- ABOUT / TOKENOMICS -->
+    <section id="tokenomics" class="section">
+        <h2 style="text-align: center; font-size: 2.5rem;">Tokenomics</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Ticker</h3>
+                <p style="font-size: 2rem; font-weight: bold;">$NDP1</p>
+                <p>The symbol of the Neesh Ecosystem.</p>
+            </div>
+            <div class="card">
+                <h3>Supply</h3>
+                <p><strong>Total Supply:</strong> 1,000,000,000</p>
+                <p>Verified and Audited.</p>
+            </div>
+            <div class="card">
+                <h3>Tax</h3>
+                <p><strong>Buy:</strong> 0% | <strong>Sell:</strong> 0%</p>
+                <p>No taxes, purely community driven.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="about" class="section" style="background-color: var(--bg-card);">
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px;">Roadmap</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <ul style="border-left: 2px solid var(--primary); padding-left: 20px;">
+                <li style="margin-bottom: 30px;">
+                    <h3 style="color: var(--secondary);">Phase 1: Launch</h3>
+                    <p>Website launch, Contract deployment, Socials setup.</p>
+                </li>
+                <li style="margin-bottom: 30px;">
+                    <h3 style="color: var(--secondary);">Phase 2: Growth</h3>
+                    <p>Marketing campaign, CoinGecko Listing, Community Listings.</p>
+                </li>
+                <li style="margin-bottom: 30px;">
+                    <h3 style="color: var(--secondary);">Phase 3: Expansion</h3>
+                    <p>CEX Listings, Partnerships, Neesh Dapp release.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2023 Neesh Coin ($NDP1). All rights reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.5;">Cryptocurrency may be unregulated in your jurisdiction. The value of cryptocurrencies may go down as well as up.</p>
+    </footer>
+
+    <!-- JAVASCRIPT functionality -->
+    <script>
+        function copyAddress() {
+            // Get the text field
+            var addressText = document.getElementById("walletAddress").innerText;
+
+            // Copy the text inside the text field
+            navigator.clipboard.writeText(addressText);
+
+            // Alert the user
+            var btn = document.querySelector(".copy-btn");
+            btn.innerText = "Copied!";
+            btn.style.background = "#00d4ff";
+            btn.style.color = "#000";
+            
+            setTimeout(() => {
+                btn.innerText = "Click to Copy Address";
+                btn.style.background = "transparent";
+                btn.style.color = "#ffffff";
+            }, 2000);
+        }
+    </script>
 </body>
 </html>
