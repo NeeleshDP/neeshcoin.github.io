@@ -68,6 +68,7 @@
             border-radius: 30px;
             font-weight: bold;
             box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+            color: white;
         }
         
         .btn-main:hover {
@@ -207,7 +208,8 @@
             <a href="#tokenomics">Tokenomics</a>
             <a href="#contract">Contract</a>
         </div>
-        <a href="#" class="btn-main">Buy $NDP1</a>
+        <!-- UPDATED BUY LINK -->
+        <a href="https://app.fjordfoundry.com/token-sales/0x81D300Ab447a8fEF97BaD3DFc5375E459B4f1Bd7" target="_blank" class="btn-main">Buy $NDP1</a>
     </nav>
 
     <!-- HERO SECTION -->
@@ -220,13 +222,14 @@
         </p>
         
         <div>
-            <a href="#" class="btn-main">View Chart</a>
+            <!-- UPDATED MAIN HERO BUTTON -->
+            <a href="https://app.fjordfoundry.com/token-sales/0x81D300Ab447a8fEF97BaD3DFc5375E459B4f1Bd7" target="_blank" class="btn-main">Buy on Fjord Foundry</a>
             <a href="https://t.me/" target="_blank" style="margin-left: 20px; border-bottom: 1px solid white;">Join Telegram</a>
         </div>
 
         <!-- CONTRACT ADDRESS BOX -->
         <div id="contract" class="contract-box">
-            <span class="contract-label">Official Contract Address (BSC/ETH)</span>
+            <span class="contract-label">Official Contract Address</span>
             <div class="address-text" id="walletAddress">0x3249f360d4fe485fa61A1E1Fa79DcC6c9758ab17</div>
             <button class="copy-btn" onclick="copyAddress()">Click to Copy Address</button>
         </div>
@@ -243,7 +246,8 @@
             </div>
             <div class="card">
                 <h3>Supply</h3>
-                <p><strong>Total Supply:</strong> 1,000,000,000</p>
+                <!-- UPDATED SUPPLY -->
+                <p><strong>Total Supply:</strong> 50,000,000</p>
                 <p>Verified and Audited.</p>
             </div>
             <div class="card">
@@ -261,7 +265,7 @@
             <ul style="border-left: 2px solid var(--primary); padding-left: 20px;">
                 <li style="margin-bottom: 30px;">
                     <h3 style="color: var(--secondary);">Phase 1: Launch</h3>
-                    <p>Website launch, Contract deployment, Socials setup.</p>
+                    <p>Website launch, Contract deployment, Fjord Foundry Sale.</p>
                 </li>
                 <li style="margin-bottom: 30px;">
                     <h3 style="color: var(--secondary);">Phase 2: Growth</h3>
@@ -284,18 +288,12 @@
     <!-- JAVASCRIPT functionality -->
     <script>
         function copyAddress() {
-            // Get the text field
             var addressText = document.getElementById("walletAddress").innerText;
-
-            // Copy the text inside the text field
             navigator.clipboard.writeText(addressText);
-
-            // Alert the user
             var btn = document.querySelector(".copy-btn");
             btn.innerText = "Copied!";
             btn.style.background = "#00d4ff";
             btn.style.color = "#000";
-            
             setTimeout(() => {
                 btn.innerText = "Click to Copy Address";
                 btn.style.background = "transparent";
